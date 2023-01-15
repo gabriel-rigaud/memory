@@ -36,15 +36,16 @@ $idverify = $_SESSION['connexion'];
                 // Connexion à la base de données
                 $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);
                 // Préparation de la requête SQL pour sélectionner l'utilisateur en fonction de son login
-                $request = $PDO->prepare("SELECT * FROM utilisateurs WHERE login = :login");
+                $request = $PDO->prepare("SELECT * FROM utilisateurs WHERE login = :login AND id != :idverify");
                 $request->bindParam(':login', $login);
-            // Exécution de la requête
-            $request->execute();
-            // Récupération du nombre de résultats
-            $row = $request->rowCount();
+                $request->bindParam(':idverify', $idverify);
+//                Exécution de la requête
+                $request->execute();
+//                Récupération du nombre de résultats
+                $row = $request->rowCount();
             // Vérification que l'utilisateur n'existe pas déjà
             if ($row == 0) {
-                $request2 = $PDO->prepare("UPDATE `utilisateurs` SET login = :login, prenom = :prenom, nom = :nom, password = :password3 WHERE login = :idverify");
+                $request2 = $PDO->prepare("UPDATE `utilisateurs` SET login = :login, prenom = :prenom, nom = :nom, password = :password3 WHERE id = :idverify");
                 // Liaison des paramètres à la requête
                 $request2->bindParam(':login', $login);
                 $request2->bindParam(':prenom', $prenom);
@@ -53,6 +54,8 @@ $idverify = $_SESSION['connexion'];
                 $request2->bindParam(':idverify', $idverify);
                 // Exécution de la requête
                 $request2->execute();
+            }else {
+                $error_message = "<p style='color: red;font-size: 18px;'>Le login que vous avez choisi est déjà utilisé</p>";
             }
         }
       }
@@ -102,12 +105,18 @@ catch(PDOException $pe)
             <label for="confmdp">Confirmé&nbsp;:</label>
             <input type="password" id="confmdp" name="password2" placeholder="Re rentrer password" required>
         </div>
+            <?php
+            if (isset($error_message)) {
+                echo "<p>$error_message</p>";
+            }
+            ?>
 
         <div><br>
             <button class="valide" type="submit" name="submit">Valider</button>
         </div>
         </div>
     </form>
+</div>
 </body>
 <footer>
     <?php include 'footer.php'?>

@@ -28,7 +28,7 @@ else if(isset($_SESSION['connexion'])){
 else{
     echo "<nav>
 <a href='./'>Accueil</a>
-<a href='apropos.php'>A Propos</a>
+<a href='contact.php'>Contact</a>
 <a href='connexion.php'>Connexion</a>
 <a href='inscription.php'>Inscription</a>
 <div class='animation start-home'></div>

@@ -29,25 +29,20 @@ $options =
 
               //on connecte la base de donnée et on lance la requete préparée pour verifier que le pseudo est disponible
               $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);
-              $request = $PDO->prepare("SELECT*FROM utilisateurs WHERE login = ? ");         
+              $request = $PDO->prepare("SELECT * FROM utilisateurs WHERE login = ? ");
               $request->bindValue(1, $login);
               $request->execute();
                   
               $row = $request->rowCount();
-              // var_dump($row);
-              // $request->close();
-              // $request->closeCursor();
-              // $PDO->close();
 
                      if($row==0)
                      {
-                       $request2 = $PDO->prepare("INSERT INTO utilisateurs (`login`, `prenom`, `nom`, `password`) VALUE ('$login','$prenom','$nom','$password3')");
-                       $request2->bindValue(1, $login);
-                       $request2->bindValue(2, $password);
+                       $request2 = $PDO->prepare("INSERT INTO utilisateurs (`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom','$password3')");
                        $request2->execute();
-                      
-                       $request2->closeCursor();
-                       // $PDO->close();
+
+                         $request2->closeCursor();
+                         $request->closeCursor();
+//                         $PDO->close();
                        header('location: connexion.php');
                        exit();
 
@@ -58,7 +53,7 @@ $options =
               else $erreur= "<p class='erreur_ins'>Les mots de passes ne sont pas similaires</p>";
           }
           else $erreur= "<p class='erreur_ins'> Veuillez renseignez tous les champs</p>";
-      } 
+      }
 }
 catch(PDOException $pe)
 {

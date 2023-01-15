@@ -9,7 +9,7 @@ body{
 }
 
 .primaire{
-    background-color: salmon;
+    background-color: #e74c3c;
 }
 
 .memory{
@@ -18,6 +18,8 @@ body{
 
 .centre{
     text-align: center;
+    font-size: 24px;
+    color: white;
 }
 
 .image{
@@ -25,7 +27,7 @@ body{
 }
 
 .text{
-    font-size: 20px;
+    font-size: 22px;
     color: darkblue;
     text-align: center;
 }
@@ -40,7 +42,7 @@ body{
 .cadre{
     border:black 1px solid;
     display: inline-block;
-    max-width: 300px;
+    max-width: 350px;
     padding: 30px;
 }
 
@@ -115,4 +117,204 @@ form input{
 ::selection{
     background-color: black;
     color: mediumslateblue;
+}
+
+.contact {
+    background: #e74c3c;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.background {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+}
+
+.style {
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 15px;
+}
+
+.style:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.style-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.style-header-left {
+    margin-right: auto;
+}
+
+.style-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: white;
+}
+
+.style-button.close {
+    background: #ed1c6f;
+}
+
+.style-button.maximize {
+    background: #e8e925;
+}
+
+.style-button.minimize {
+    background: #74c54f;
+}
+
+.style-body {
+    display: flex;
+}
+
+.style-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.style-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #e74c3c;
+    font-size: 26px;
+}
+
+.title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #e74c3c;
+}
+
+.form-contact {
+    margin-top: auto;
+    font-size: 10px;
+    color: #888;
+}
+
+.form-contact-color{
+    margin-top: auto;
+    font-size: 13px;
+    background: black;
+    color: #888;
+}
+
+.color{
+    background: black;
+    color: #888;
+}
+
+.champ {
+    margin-bottom: 15px;
+}
+
+.champ.message {
+    margin-top: 40px;
+}
+
+.form-text {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.form-text::placeholder {
+    color: #666;
+}
+
+.form-text:focus {
+    border-bottom-color: #ddd;
+}
+
+.button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    color: #CC3300;
+}
+
+.footer-text a:hover{
+    color: royalblue;
+}
+
+@media screen and (max-width: 520px) {
+    .style-body {
+        flex-direction: column;
+    }
+
+    .style-body-item.left {
+        margin-bottom: 30px;
+    }
+
+    .title {
+        flex-direction: row;
+    }
+
+    .title span {
+        margin-right: 12px;
+    }
+
+    .title:after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .style-body {
+        padding: 40px;
+    }
+
+    .style-body-item {
+        padding: 0;
+    }
 }

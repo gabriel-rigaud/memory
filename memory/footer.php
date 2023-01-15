@@ -9,6 +9,6 @@
         <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
     </ul>
     <div class="footer-text">
-        <p>copyright &copy;2021 <a href="./">OneSite</a></p>
+        <p>copyright &copy;2021 <a href="./">Mémory</a></p>
     </div>
 </footer>
