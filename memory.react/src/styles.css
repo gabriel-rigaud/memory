@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: gray;
+  color: #fff;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.card-background {
+  background: brown;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('card-back.png'); /* Remplacez 'url_de_votre_image.jpg' par le chemin de votre image de fond */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de revenir à la ligne si nécessaire */
+  justify-content: center; /* Centre les cartes horizontalement */
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px; /* Pour que l'image soit également arrondie */
+}
+
+.card-back {
+  background-color: #ccc; /* Couleur de fond du dos de la carte */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Empêche le dos de la carte d'être visible lorsque la carte est retournée */
+  border-radius: 10px; /* Bordure arrondie */
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
